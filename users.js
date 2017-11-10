@@ -165,10 +165,13 @@ function importUsergroups() {
 	for (let i in usergroups) delete usergroups[i];
 
 	FS('config/usergroups.csv').readTextIfExists().then(data => {
-		for (const row of data.split("\n")) {
+		
+		for (const row of data split.split("\n")) {
+		
 			if (!row) continue;
 			let cells = row.split(",");
-			usergroups[toId(cells[0])] = (cells[1] || Config.groupsranking[0]) + cells[0];						      
+			usergroups[toId(cells[0])] = (cells[1] ||
+Config.groupsranking[0]) + cells[0];						      
 		}
 	});
 }
