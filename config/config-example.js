@@ -4,7 +4,8 @@
 exports.port = 8000;
 
 //serverIp for parsing of custom avatars, put your server's ip here
-exports.serverIp = '';
+exports.serverIp = '10.127.0.12'; 
+//hopefully this fixes the server's ip bug
 
 // The server address - the address at which Pokemon Showdown should be hosting
 //   This should be kept set to 0.0.0.0 unless you know what you're doing.
@@ -111,7 +112,7 @@ exports.disablebasicnamefilter = false;
 //   /hidejoins configuration for users.
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 80 or so users.
-exports.reportjoins = true;
+exports.reportjoins = false;
 
 // report joins and leaves periodically - sends silent join and leave messages in batches
 //   This setting will only be effective if `reportjoins` is set to false, and users will
@@ -122,7 +123,8 @@ exports.reportjoinsperiod = 0;
 // report battles - shows messages like "OU battle started" in the lobby
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 160 or so users.
-exports.reportbattles = true;
+exports.reportbattles = true; 
+//changed rooms to report battles in games instead
 
 // report joins and leaves in battle - shows messages like "<USERNAME> joined" in battle
 //   Set this to false on large tournament servers where battles get a lot of joins and leaves.
@@ -191,7 +193,9 @@ exports.SGbackdoor = false;
 // In addition to connecting from a valid IP, a user must *also* have
 // the `console` permission in order to use the dev console.
 // Setting this to an empty array ([]) will disable the dev console.
-exports.consoleips = ['127.0.0.1'];
+//a removed temporarily exports.consoleips = ['127.0.0.1'];
+exports.consoleips = [];
+
 
 // Whether to watch the config file for changes. If this is enabled,
 // then the config.js file will be reloaded when it is changed.
@@ -200,10 +204,10 @@ exports.consoleips = ['127.0.0.1'];
 exports.watchconfig = true;
 
 // logchat - whether to log chat rooms.
-exports.logchat = false;
+exports.logchat = true;
 
 // logchallenges - whether to log challenge battles. Useful for tournament servers.
-exports.logchallenges = false;
+exports.logchallenges = true;
 
 // loguserstats - how often (in milliseconds) to write user stats to the
 // lobby log. This has no effect if `logchat` is disabled.
@@ -223,7 +227,7 @@ exports.inactiveuserthreshold = 1000 * 60 * 60;
 // autolockdown - whether or not to automatically kill the server when it is
 // in lockdown mode and the final battle finishes.  This is potentially useful
 // to prevent forgetting to restart after a lockdown where battles are finished.
-exports.autolockdown = true;
+exports.autolockdown = false;
 
 // Custom avatars.
 // This allows you to specify custom avatar images for users on your server.
@@ -242,10 +246,10 @@ exports.customavatars = {
 // tourannouncements - announcements are only allowed in these rooms
 // tourdefaultplayercap - a set cap of how many players can be in a tournament
 // ratedtours - toggles tournaments being ladder rated (true) or not (false)
-exports.tourroom = '';
+exports.tourroom = 'games';
 exports.tourannouncements = [/* roomids */];
 exports.tourdefaultplayercap = 0;
-exports.ratedtours = false;
+exports.ratedtours = true;
 
 // appealurl - specify a URL containing information on how users can appeal
 // disciplinary actions on your section. You can also leave this blank, in
@@ -428,6 +432,17 @@ exports.grouplist = [
 		jeopardy: true,
 		joinbattle: true,
 		minigame: true,
+	},
+	{
+		symbol: '\u2605',
+		id: "host",
+		name: "Games & Tour Hoster",
+		inherit: '+',
+		tournaments: true,
+		tournamentsmoderation: true,
+		timer: true,
+		minigame: true,
+		game: true,
 	},
 	{
 		symbol: '+',
