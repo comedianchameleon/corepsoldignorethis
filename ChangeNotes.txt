@@ -1,0 +1,19 @@
+modified (chat-plugins)
+- added: /popup,
+
+chatrooms (config)
+- autojoin games (before lobby)
+
+Procfile
+- changed to node pokemon-showdown
+
+usergroups (config)
+- contains ranks
+
+[blank] .gitignore
+- removed config/*
+- removed logs/* (or something)
+
+config (config)
+- configured ideal core settings
+- Added "host" rank
